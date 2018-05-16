@@ -16,6 +16,7 @@
 
 package pojo;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.Comparator;
 
 /**
@@ -39,7 +40,7 @@ public class Stock {
      * @param d date string to be parsed
      * @param p price to be stored
     */
-    public Stock(String d, String p){
+    public Stock(String d, double p){
         //splits date string into month, date, and year
         String dateAttributes[] = d.split("\\");
         //Iniatialize Calendar object and clear it
@@ -60,7 +61,7 @@ public class Stock {
     /** Getter method for price
      * @return String price variable
      */
-    public String getPrice(){
+    public Double getPrice(){
         return price;
     }
 
@@ -71,18 +72,18 @@ public class Stock {
         return date;
     }
 
-    /**Setter method for name
-     * @return String new name
-     */
-    public String setName(String newName){
-        name = newName;
-        return name;
-    }
+//    /**Setter method for name
+//     * @return String new name
+//     */
+//    public String setName(String newName){
+//        name = newName;
+//        return name;
+//    }
 
     /**Setter method for date
      * @return String new date
      */
-    public String setEnd(Calendar newDate){
+    public Calendar setEnd(Calendar newDate){
         date = newDate;
         return date;
     }
