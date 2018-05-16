@@ -88,11 +88,12 @@ class StockTicker extends React.Component {
              * Add any additional state to pass via props to the typeahead component.
              */
         };
-        this.handleChange = this.handleChange.bind(this);
+        this.handleStockChange = this.handleStockChange.bind(this);
     }
 
-    handleChange(event) {
+    handleStockChange(event) {
         if (event.length > 0) {
+            console.log(event);
             /**
              * TODO
              * Make a request to your service to GET company information for the selected company and set it in state.
@@ -104,7 +105,7 @@ class StockTicker extends React.Component {
              * and render it.
              */
             this.setState({showinfo: true});
-
+            this.props.onChange(event[0])
             //this.props.onChange(..);  Call this.props.onChange with the selected symbol to propagate it
             // to the App component, which will handle it via its own onChane prop,
             // ultimately  used to fetch the data for the LineChart component.
@@ -137,10 +138,29 @@ class StockTicker extends React.Component {
                              align="left"
                              //filterBy=
                              labelKey="company"
-                             onChange={this.handleChange}
+                             onChange={this.handleStockChange}
                              minLength={2}
                              placeholder="Company Name/Ticker"
-                             options={['Goldman Sachs (GS)', 'Goldmasdfdsfn Sachs (GS)', 'c']}
+                             options={['Activision Blizzard Inc (ATVI)', , 'Akamai Technologies Inc (ADBE)'
+, 'Akamai Technologies Inc. (AKAM)', 'Alexion Pharmaceuticals Inc. (ALXN)'
+, 'Alphabet Inc. (GOOG)', 'Amazon.com Inc (AMZN)'
+, 'American Airlines Group Inc. (AAL)',
+, 'Analog Devices Inc. (ADI)', 'Amgen Inc. (AMGN)'
+, 'Apple Inc. (AAPL)', 'Applied Materials Inc (AMAT)'
+, 'Autodesk Inc. (ADSK)', 'Automatic Data Processing Inc. (ADP)'
+, 'Baidu Inc. (BIDU)', 'Biogen Inc. (BIIB)'
+, 'BioMarin Pharmaceutical Inc (BMRN)', 'Broadcom Limited (AVGO)'
+, 'CA Inc (CA)', 'Celgene Corporation (CELG)'
+, 'Cerner Corporation (CERN)', 'Charter Communications Inc (CHTR)'
+, 'Check Point Software Technologies Ltd (CHKP)', 'Cintas Corporation (CTAS)'
+, 'Cisco Systems Inc (CSCO)', 'Citrix Systems Inc (CTXS)'
+, 'Cognizant Technology Solutions Corporation (CTSH)', 'Comcast Corporation (CMCSA)','Costco Wholesale Corporation (COST)'
+, 'CSX Corporation (CSX)', 'Ctrip.com International Ltd (CTRP)', 'DENTSPLY SIRONA Inc. (XRAY)', 'Goldman Sachs (GS)'
+, 'Discovery Communications Inc. (DISCA)', 'Discovery Communications Inc. (DISCK)', 'DISH Network Corporation (DISH)', 'Dollar Tree Inc. (DLTR)'
+, 'eBay Inc. (EBAY)', 'Electronic Arts Inc. (EA)', 'Expedia Inc. (EXPE)', 'Express Scripts Holding Company (ESRX)'
+, 'Facebook Inc. (FB)', 'Fastenal Company (FAST)', 'Fiserv Inc. (FISV)', 'Gilead Sciences Inc. (GILD)'
+, 'Hasbro Inc. (HAS)', 'Henry Schein Inc. (HSIC)', 'Hologic Inc. (HOLX)', 'IDEXX Laboratories Inc. (IDXX)'
+, 'Illumina, Inc. (ILMN)', 'Incyte Corporation (INCY)']}
                         />
                         }
                     </div>

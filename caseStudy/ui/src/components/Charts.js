@@ -21,12 +21,14 @@ class Charts extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            data = ''
             /**
              * TODO
              * Initialize a state object to store a JavaScript object returned from the helper method.
              * It can be initialized to be empty.
              */
         };
+        this.dataSourceHelper = this.dataSourceHelper.bind(this);
     }
 
 

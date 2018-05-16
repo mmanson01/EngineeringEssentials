@@ -37,14 +37,14 @@ class Date extends React.Component {
         this.state = {
             startDate: moment()
         };
-        this.handleChange = this.handleChange.bind(this);
+        this.handleDateChange = this.handleDateChange.bind(this);
     }
 
     componentDidMount() {
-        //this.props.onChange(this.state.date);
+        this.props.onChange(this.state.startDate);
     }
 
-    handleChange(date) {
+    handleDateChange(date) {
         /**
          * TODO
          * Set the state. Call this.props.onChange with the date argument
@@ -52,7 +52,7 @@ class Date extends React.Component {
          * own onChange prop.
          */
         this.setState({startDate: date});
-        this.props.onChange(this.state.date);
+        this.props.onChange(this.state.startDate);
     }
 
     render() {
@@ -73,7 +73,7 @@ class Date extends React.Component {
                 <div className="date-input">
                 <DatePicker
                 selected={this.state.startDate}
-                onChange={this.handleChange}
+                onChange={this.handleDateChange}
                 />
                 </div>
             </div>

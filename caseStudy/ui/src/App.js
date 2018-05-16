@@ -31,12 +31,27 @@ class App extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
+            render: false,
+            data: '',
+            startDate: '',
+            endDate: ''
             /**
              * TODO
              * Add state objects for the user inputs and anything else you may need to render the highchart.
              */
         };
+        this.handleStockChange = this.handleStockChange.bind(this);
+        this.handleDateChange = this.handleDateChange.bind(this);
 
+    }
+
+    handleStockChange(company){
+        this.setState({data:company, render:true});
+    }
+    handleDateChange(startDate){
+        console.log(startDate);
+       // console.log(endDate);
+       // this.setState({startDate:startDate, endDate:endDate});
     }
 
 
@@ -52,26 +67,30 @@ class App extends React.Component{
                */
 
     render () {
+   
+        
+
       return (
           <div className="page-display">
               <div className="input">
               {
-                <div><StockTicker />
+                <div><StockTicker onChange={this.handleStockChange}/>
               
                 <div className="date-range">
 
                 <div className='data-input'>
-                <Date text='Start Date' /></div> 
+                <Date text='Start Date' onChange={this.handleDateChange}/></div> 
 
                 <div className='data-input'>
-                <Date text='End Date' /></div> 
+                <Date text='End Date' onChange={this.handleDateChange}/></div> 
 
 
                 </div></div>
                 }
               </div>
               <div>
-                <SolChart info="GS" data={companyData} />
+                {this.state.render && <SolChart title={this.state.data} data={companyData} />}
+         
              </div>
 
                  {/**
