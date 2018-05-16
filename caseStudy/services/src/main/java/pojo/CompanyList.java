@@ -20,9 +20,10 @@ package pojo;
  * This class will define a company and its attributes
  * Look at resources/data/companyInfo.json
  */
-static Company[] companyArray;
 
 public class CompanyList {
+    static Company[] companyArray;
+
 
     // TODO - Think back to your modelling session
     // Define the attributes of a Company based on the

@@ -2,6 +2,8 @@ package pojo;
 
 import java.io.FileReader;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
 import com.google.gson.Gson;
 
 
@@ -12,12 +14,26 @@ public class ParseMain{
         ArrayList<Stock> stocks=new ArrayList<Stock>(numCompanies);
 
         Gson gson=new Gson();
-        Filereader companyFileReader= new FileReader("../../resources/data/companyInfo.json");
-        CompanyList companyList=gson.fromJson(companyFileReader,companyList.class);
+        FileReader companyFileReader = null;
+        try{
+            companyFileReader = new FileReader("../../resources/data/companyInfo.json");
+        }
+        catch(IOException e){
+            System.out.println("Error");
+        }
+        CompanyList companyList=gson.fromJson(companyFileReader,CompanyList.class);
 
         for(int i=0;i<companyList.companyArray.length;i++){
-            System.out.println(companyArray[i].getName());
+            System.out.println(companyList.companyArray[i].getName());
         }
+        /*File companyFile = new File("../../resources/data/companyInfo.json");
+        BufferedReader bufferedReader = null;
+
+        try{
+            bufferedReader = new BufferedReader(companyFile);
+            String line;
+            while((line = bufferedReader)) 
+        }*/
     }
 }
 
