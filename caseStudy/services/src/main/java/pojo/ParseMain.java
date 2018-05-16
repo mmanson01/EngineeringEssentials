@@ -1,10 +1,13 @@
+
 package pojo;
+
+import com.google.gson.*;//Gson;
 
 import java.io.FileReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
-import com.google.gson.Gson;
+import com.google.gson.JsonParser;
 
 
 public class ParseMain{
@@ -27,12 +30,14 @@ public class ParseMain{
             System.out.println(companyList.companyArray[i].getName());
         }
         /*File companyFile = new File("../../resources/data/companyInfo.json");
-        BufferedReader bufferedReader = null;
+        BuffEeredReader bufferedReader = null;
 
         try{
             bufferedReader = new BufferedReader(companyFile);
             String line;
-            while((line = bufferedReader)) 
+            while((line = bufferedReader)){
+
+            }
         }*/
     }
 }
